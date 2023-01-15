@@ -10,7 +10,9 @@ export const FilterResults = (weatherData: Result) => {
       return item.dt_txt.slice(0, 10) == date.toJSON().slice(0, 10)
     })
 
-    filteredList.push(data)
+    if (data.length !== 0) {
+      filteredList.push(data)
+    }
     date.setDate(date.getDate() + 1)
   }
 
