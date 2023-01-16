@@ -44,7 +44,7 @@ export default function Forecast({ location }: { location: any }) {
      filteredData = FilterResults(data)
      chartData = getChatData(filteredData)
   }catch(e){
-    return <Error message={'Error.Unknown location...'}/>
+    return <Error message={'Error Unknown location... ☹️'}/>
   }
 
   return (
