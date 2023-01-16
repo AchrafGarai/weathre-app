@@ -9,7 +9,9 @@ import { A11y, Navigation, Pagination, Scrollbar } from 'swiper'
 import Chart from './Chart'
 import { FilterResults } from '@/utils/FilteredList'
 import { getChatData } from '@/utils/getWeatherData'
+import { appId } from '@/utils/AppId'
 import Loading from './Loading'
+import Error from './Error'
 import useSWR from 'swr'
 
 import 'swiper/swiper.min.css'
@@ -17,7 +19,7 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 
-const appId = '762385c71cb82e47ad4fdd68f06f6271'
+
 
 export default function Forecast({ location }: { location: any }) {
   const unit = useUnitStore((state) => state.unit)
@@ -31,11 +33,19 @@ export default function Forecast({ location }: { location: any }) {
   )
 
   // ... handle loading and error states
-  if (error) return <p>An error has occurred.</p>
+  if (error) return <Error message={'Unable to load data.'}/>
   if (!data) return <Loading />
-
-  const filteredData = FilterResults(data)
-  const chartData = getChatData(filteredData)
+  
+  // Initialize filtered data from api response
+  let filteredData
+  let chartData 
+  
+  try{
+     filteredData = FilterResults(data)
+     chartData = getChatData(filteredData)
+  }catch(e){
+    return <Error message={'Error.Unknown location...'}/>
+  }
 
   return (
     <div>

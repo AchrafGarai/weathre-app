@@ -2,6 +2,8 @@
 import { useUnitStore } from '@/utils/unitStore'
 
 function UnitToggle() {
+  
+  // get state from zustand
   const toggleUnit = useUnitStore((state) => state.toggleUnit)
   const unit = useUnitStore((state) => state.unit)
 

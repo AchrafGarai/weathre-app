@@ -1,5 +1,5 @@
-const appId = '762385c71cb82e47ad4fdd68f06f6271'
 
+import { appId } from '@/utils/AppId'
 export const getLocationData = async (location: string | undefined) => {
   try {
     const geoData = (await fetch(

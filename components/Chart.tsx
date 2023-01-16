@@ -1,9 +1,6 @@
 'use client'
 import {
   AreaChart,
-  LineChart,
-  Line,
-  CartesianGrid,
   XAxis,
   YAxis,
   Tooltip,
@@ -15,13 +12,6 @@ import {
 function Chart({ data }: any) {
   return (
     <div className="py-12 border border-zinc-800 bg-zinc-900 rounded-2xl my-24 px-8 pl-0">
-      {/* <LineChart width={960} height={400} data={data}>
-        <XAxis dataKey="date" />
-        <YAxis dataKey="temp" />
-        <Tooltip />
-        <Legend />
-        <Line type="monotone" dataKey="temp" stroke="#8884d8" />
-      </LineChart> */}
       <ResponsiveContainer width={'100%'} height={400}>
         <AreaChart
           width={200}

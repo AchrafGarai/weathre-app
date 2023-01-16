@@ -16,10 +16,10 @@ function Search() {
     <div>
       <form
         onSubmit={handleSearch}
-        className="flex gap bg-zinc-800 items-center rounded-full border border-zinc-700"
+        className="flex gap bg-zinc-900 items-center rounded-full border border-zinc-800"
       >
         <input
-          className="p-4 bg-zinc-800 rounded-full "
+          className="p-4 bg-zinc-900 rounded-full "
           type="text"
           placeholder="Search for a location"
           value={search}
