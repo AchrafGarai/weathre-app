@@ -1,6 +1,7 @@
 'use client'
 import { List } from '@/types'
 import Image from 'next/image'
+import Moment from 'react-moment';
 import { useUnitStore } from '@/utils/unitStore'
 
 export default function WeatherSlide({ data }: { data: List[] }) {
@@ -17,7 +18,7 @@ export default function WeatherSlide({ data }: { data: List[] }) {
         <li className="text-2xl font-bold ">
           {data[0].main.feels_like.toFixed()} {unit === 'metric' ? 'C°' : 'F°'}
         </li>
-        <li>{data[0].dt_txt.slice(0, 10)}</li>
+        <li><Moment format='Do MMM'>{data[0].dt_txt.slice(0, 10)}</Moment></li>
       </ul>
     </div>
   )
